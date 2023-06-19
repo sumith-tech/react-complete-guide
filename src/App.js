@@ -21,29 +21,16 @@ function App() {
       location: "madvaram",
     },
   ];
-  return (
-    <div>
-      <h2>Lesson 1</h2>
-      <ExpenseItem
-        title={expenses[0].item}
-        amount={expenses[0].price}
-        date={expenses[0].date}
-        location={expenses[0].location}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[1].item}
-        amount={expenses[1].price}
-        date={expenses[1].date}
-        location={expenses[1].location}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={expenses[2].item}
-        amount={expenses[2].price}
-        date={expenses[2].date}
-        location={expenses[2].location}
-      ></ExpenseItem>
-    </div>
-  );
+  let some = expenses.map((data) => (
+    <ExpenseItem
+      key={data.item}
+      title={data.item}
+      amount={data.price}
+      date={data.date}
+      location={data.location}
+    ></ExpenseItem>
+  ));
+  return <div>{some}</div>;
 }
 
 export default App;
