@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
@@ -6,8 +6,13 @@ import "./ExpenseItem.css";
 
 const ExpenseItem = (props) => {
 
+  const [title, setTitle]= useState(props.title);
+
   const eventButton = () =>{
-    console.log('clicked!!!')
+    
+    setTitle('updated');
+    console.log(title)
+
   }
 
   const eventDelete = (dlt) => {
@@ -19,17 +24,22 @@ const ExpenseItem = (props) => {
 
   }
 
+  const [amount, setAmount] = useState(props.amount);
+  const changeExpense = ()=>{
+    setAmount(100);
+  }
+
   return (
 
-    <Card className="expense-item" id={props.id}>
+    <Card className="expense-item">
       <ExpenseDate date={props.date} />
       <div className="expense-item__description">
-        <h2>{props.title}</h2>
+        <h2>{title}</h2>
         <p>{props.location}</p>
-        <div className="expense-item__price">${props.amount}</div>
+        <div className="expense-item__price">${amount}</div>
       </div>
-      <button onClick={eventButton}>Change amount</button>
-      <button onClick={()=>eventDelete(props.id)}>Delete expenses</button>
+      <button className="change-amount" onClick={eventButton}>Change amount</button>
+      <button className="change-expenses" onClick={changeExpense}>change expenses</button>
     </Card>
   );
 };
