@@ -26,7 +26,7 @@ const ExpenseItem = (props) => {
         <div className="expense-item__price">${amount}</div>
       </div>
       <button className="change-amount" onClick={eventButton}>
-        Change amount
+        Change Name
       </button>
       <button className="change-expenses" onClick={changeExpense}>
         change expenses
