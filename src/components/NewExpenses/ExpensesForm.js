@@ -15,9 +15,9 @@ const ExpensesForm = (props) => {
 
 
     const titleChangeHandler = (event) =>{
-      
+      console.log(event.target.value)
       setenteredtitle(event.target.value);
-
+     
       // setuserInput({                                     //multiple state aproach value change -1 ;
       //   ...userInput,
       //   enteredtitle:event.target.value,
@@ -35,13 +35,15 @@ const ExpensesForm = (props) => {
       setenteredAmount(event.target.value);
     }
     const dateChangeHandler = (event) =>{
-      setenteredDate(event.target.value);
+      const dateuh =new Date(event.target.value)
+     
+      setenteredDate(dateuh);
     }
     const submitEvent = (event) =>{
       event.preventDefault();
       
       const expenseData ={
-        expense:enteredtitle,
+        title:enteredtitle,
         amount:enteredAmount,
         date:enteredDate
       }
